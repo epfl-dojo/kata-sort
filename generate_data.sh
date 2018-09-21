@@ -1,16 +1,16 @@
 #!/bin/bash
 
 function data_random() {
-  echo $(seq $1 -1 1 | shuf | jq -R . | jq -s . )
+  echo $(seq 1 $1 | shuf | jq -s . )
 }
 function data_nearly_sorted() {
-  echo $(for i in `seq 1 10 $1`; do seq $i 1 $((i+9)) | shuf;  done | jq -R . | jq -s . )
+  echo $(for i in `seq 1 10 $1`; do seq $i 1 $((i+9)) | shuf;  done | jq -s . )
 }
 function data_reversed() {
-  echo $(seq $1 -1 1 | jq -R . | jq -s . )
+  echo $(seq $1 -1 1 | jq -s . )
 }
 function data_few_unique() {
-  echo $(for i in `seq $(($1/100)) -1 1`; do seq 199 -1 100 | shuf;  done | jq -R . | jq -s . )
+  echo $(for i in `seq $(($1/100)) -1 1`; do seq 199 -1 100 | shuf;  done | jq -s . )
 }
 
 # Check that arg $1 is set and is a multiple of 100
