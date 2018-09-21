@@ -35,6 +35,11 @@ else
   DATA_FEW_UNIQUE=$(data_few_unique $1)
   echo -e "data_few_unique : ${DATA_FEW_UNIQUE}\n"
 
-  echo -e "{\n  \"data_random\": ${DATA_RANDOM},\n  \"data_nearly_sorted\": ${DATA_NEARLY_SORTED},\n  \"data_reversed\": ${DATA_REVERSED},\n  \"data_few_unique\": ${DATA_FEW_UNIQUE}\n}" > generated_data.json
+  echo -e "{\n\
+  \"data_random\":\n    ${DATA_RANDOM},\n\
+  \"data_nearly_sorted\":\n    ${DATA_NEARLY_SORTED},\n\
+  \"data_reversed\":\n    ${DATA_REVERSED},\n\
+  \"data_few_unique\":\n    ${DATA_FEW_UNIQUE}\n}"\
+  > generated_data.json
   echo "Saved to generated_data.json"
 fi
