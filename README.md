@@ -24,17 +24,15 @@ ce fichier.
 ## Problème
 Le but de ce kata est de comprendre le fonctionnement des algorithmes de tri
 (par comparaisons) et de ne pas utiliser les fonctions "built-in" du langages.
-Il est nécessaire de chronométrer le temps nécessaire au tri de chaque tableau. 
+Il est nécessaire de chronométrer le temps nécessaire au tri de chaque tableau.
 
 ### Données de départ
 Les données à trier sont quatre tableaux générés par le script
-[./generate_data.sh](generate_data.sh):
-  * $data_random: des nombres de 1 à 500 mélangés ;
-  * $data_nearly_sorted: des nombres de 1 à 500 mélangés par tranche de 10 ;
-  * $data_reversed: des nombres de 500 à 1 ;
-  * $data_few_unique: 5 fois les nombres de 100 à 199 mélangés.
-
-Si nécessaire, [./generate_data](ce fichier) donne un set d'exemple.
+[./generate_data.sh](generate_data.sh), stoqués dans le fichier [./generated_data.json](generated_data.json)
+  * data_random: des nombres de 1 à 500 mélangés ;
+  * data_nearly_sorted: des nombres de 1 à 500 mélangés par tranche de 10 ;
+  * data_reversed: des nombres de 500 à 1 ;
+  * data_few_unique: 5 fois les nombres de 100 à 199 mélangés.
 
 ### Tris
 
