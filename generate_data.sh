@@ -13,6 +13,10 @@ function data_few_unique() {
   echo $(for i in `seq $(($1/100)) -1 1`; do seq 199 -1 100 | shuf;  done | jq -s . )
 }
 
+# Quick check for jq and shuf
+hash jq 2>/dev/null || { echo >&2 "    Error: → jq is required but it's not installed. Aborting."; exit 1; }
+hash shuf 2>/dev/null || { echo >&2 "    Error: → shuf is required but it's not installed. Aborting."; exit 1; }
+
 # Check that arg $1 is set and is a multiple of 100
 if [ $# -lt 1 ] || [ $(($1%100)) -ne 0 ]; then
   echo ""
