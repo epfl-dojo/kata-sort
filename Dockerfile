@@ -6,6 +6,8 @@
 #          docker run -it --rm -v $(pwd):/work epfldojo/katasort sh /work/generate_data.sh
 #       2. Call script:
 #          docker run -it --rm -v $(pwd):/work epfldojo/katasort ruby /work/sort.rb
+#       2. Call script:
+#          docker run -it --rm -v $(pwd):/work epfldojo/katasort ruby /work/bench_all_sort.sh
 #
 #
 FROM alpine:3.7
