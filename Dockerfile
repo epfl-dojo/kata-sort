@@ -8,6 +8,8 @@
 #          docker run -it --rm -v $(pwd):/work epfldojo/katasort sh /work/bench_all_sort.sh
 #
 #
+#asd
+as
 FROM ubuntu:latest
 MAINTAINER epfl-dojo <epfl-dojo@groupes.epfl.ch>
 RUN apt-get update
