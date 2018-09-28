@@ -3,14 +3,13 @@
 #
 # Usage:
 #       1. Generate data:
-#          docker run -it --rm -v $(pwd):/work epfldojo/katasort sh /work/generate_data.sh
+#          docker run -it --rm -v $(pwd):/work epfldojo/katasort ruby /work/generate_data.rb
 #       2. Call script:
-#          docker run -it --rm -v $(pwd):/work epfldojo/katasort ruby /work/sort.rb
-#       2. Call script:
-#          docker run -it --rm -v $(pwd):/work epfldojo/katasort ruby /work/bench_all_sort.sh
+#          docker run -it --rm -v $(pwd):/work epfldojo/katasort sh /work/bench_all_sort.sh
 #
 #
-FROM alpine:3.7
+FROM ubuntu:latest
 MAINTAINER epfl-dojo <epfl-dojo@groupes.epfl.ch>
-RUN apk add --no-cache jq coreutils ruby
+RUN apt-get update
+RUN apt-get install -y ruby
 WORKDIR /work
