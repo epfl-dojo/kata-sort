@@ -89,7 +89,7 @@ end
 
 # ---------------------------------------------------------------------------------
 for algo in ["bubble", "quick"]
-  for n in [100, 1000, 10000]
+  for n in [100, 200, 400, 800, 1600, 3200, 6400]
     a = data_random(n) 
     b = data_reverse(n)
     c = data_nearly_sorted(n, 100)
