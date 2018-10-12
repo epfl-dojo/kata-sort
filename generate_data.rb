@@ -26,9 +26,11 @@ def data_nearly(n, bs, ofs=0)
 end
 
 data={}
-for n in [100, 1000, 10000] do 
-  data["random_#{n}"] = data_random(n)
-  data["reverse_#{n}"] = data_reverse(n)
-  data["nearly_#{n}"] = data_nearly(n, 100)
+for n in [100, 200, 400, 800, 1600] do
+  ndata={}
+  ndata["random"] = data_random(n)
+  ndata["reverse"] = data_reverse(n)
+  ndata["nearly"] = data_nearly(n, 100)
+  data[n] = ndata;
 end
 File.open("generated_data.json", "w+") {|f| JSON.dump(data, f)}
