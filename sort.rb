@@ -43,7 +43,7 @@ def partition(a, first, last, pivot)
   j
 end
 
-def quick_sort(a, first=0, last=nil)
+def recursive_quick_sort(a, first=0, last=nil)
   last = a.size - 1 if last.nil?
   if first < last
     pivot = last
@@ -52,6 +52,21 @@ def quick_sort(a, first=0, last=nil)
     quick_sort(a, pivot+1, last)
   end
   a
+end
+
+def quick_sort(a, first=0, last=nil)
+  last = a.size - 1 if last.nil?
+  stack = []
+  stack << [first, last]
+  while c = stack.pop
+    first, last = c
+    if first < last
+      pivot = last
+      pivot = partition( a, first, last, pivot)
+      stack << [first, pivot-1]
+      stack << [pivot+1, last]
+    end
+  end
 end
 
 # ---------------------------------------------------------------------------------
