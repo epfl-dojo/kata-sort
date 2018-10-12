@@ -11,5 +11,5 @@
 FROM ubuntu:latest
 MAINTAINER epfl-dojo <epfl-dojo@groupes.epfl.ch>
 RUN apt-get update
-RUN apt-get install -y ruby time
+RUN apt-get install -y ruby time sysbench
 WORKDIR /work
