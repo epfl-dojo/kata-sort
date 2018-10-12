@@ -1,5 +1,7 @@
 require 'json'
 
+COMMON_RANDOM = Random.new(2310)
+
 # return an array of the integers between 1+ofs and n+ofs
 def data_sorted(n, ofs=0)
   ((1+ofs)..(n+ofs)).to_a
@@ -12,7 +14,7 @@ end
 
 # return an array of the integers between 1+ofs and n+ofs in random order
 def data_random(n, ofs=0)
-  ((1+ofs)..(n+ofs)).to_a.shuffle
+  ((1+ofs)..(n+ofs)).to_a.shuffle(random: COMMON_RANDOM)
 end
 
 # return an array of size n where blocks of size bs are independently shuffled
