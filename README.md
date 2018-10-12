@@ -3,14 +3,12 @@
 Contributions, commentaires et autres propositions d'améliorations bienvenues !
 
 # TODO
- * Trouver un moyen de générer les résultats: cela implique que chaque utilisateur puisse lancer, sur son propre ordinateur, un jeu de test dans chaque language proposé. → docker ?
- * Trouver un moyen de comparer les résultats: comment rapporter les résultats de test qu'un utilisateur aura fait, sur sa machine, pour chaque langage ?
  * Trouver un moyen de générer les données de départ avant les tests, e.g. pour avoir de plus gros tableau, ou de multiplier les tests.
  * Selectionner quelques algorithmes, par exemple 4.
  * Documenter les algorithmes sélectionnés.
+ * Tout mettre dans une base couchDB
 
 ---
-
 # Kata Sort
 Le but de ce kata est d'explorer différents algorithmes de tri.
 
@@ -90,6 +88,16 @@ Le tri stupide consiste à vérifier si les éléments sont ordonnés et s'ils n
 sont pas à mélanger aléatoirement les éléments, puis à répéter l'opération.
  → https://fr.wikipedia.org/wiki/Tri_stupide
 
+## Utilisation
+ 
+ ```
+ docker build -t epfldojo/katasort .
+ docker run -it --rm -v $(pwd):/work epfldojo/katasort ruby /work/generate_data.rb
+ docker run -it --rm -v $(pwd):/work epfldojo/katasort sh /work/bench_all_sort.sh
+ ```
+ 
 ## Contributeurs (langages par ordre alphabétique)
   * [langage](./sort.py) → [@epfl-dojo](https://github.com/epfl-dojo)
   * ... 
+
+ 
