@@ -12,4 +12,5 @@ FROM ubuntu:latest
 MAINTAINER epfl-dojo <epfl-dojo@groupes.epfl.ch>
 RUN apt-get update
 RUN apt-get install -y ruby time sysbench
+RUN apt-get install -y lua50 luarocks && luarocks install luajson
 WORKDIR /work
