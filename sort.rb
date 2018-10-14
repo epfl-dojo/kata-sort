@@ -54,8 +54,9 @@ def recursive_quick_sort(a, first=0, last=nil)
   a
 end
 
-def quick_sort(a, first=0, last=nil)
-  last = a.size - 1 if last.nil?
+def quick_sort(a)
+  first = 0
+  last = a.size - 1
   stack = []
   stack << [first, last]
   while c = stack.pop
