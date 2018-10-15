@@ -1,3 +1,5 @@
 #!/bin/sh
+
+echo "MACHINE=$MACHINE"
 time ruby ./sort.rb
-#sysbench --test=cpu --threads=4 run
+time lua ./sort.lua

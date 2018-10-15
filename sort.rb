@@ -1,3 +1,6 @@
+LANGUAGE="ruby"
+MACHINE=ENV["MACHINE"] || "Unknown";
+
 require "json"
 input_data = File.read "generated_data.json"
 
@@ -71,9 +74,8 @@ def quick_sort(a)
 end
 
 # ---------------------------------------------------------------------------------
-my_bench_data = {}
+my_bench_data = []
 for algo in ["bubble", "quick"]
-  my_bench_data[algo]={}
   data = JSON.parse(input_data)
   data.each do |n, ndata|
     a = ndata["random"]
@@ -84,9 +86,9 @@ for algo in ["bubble", "quick"]
       self.send("#{algo}_sort", b)
       self.send("#{algo}_sort", c)
     end
-    my_bench_data[algo][n]=dt  
+    my_bench_data << {"machine" => MACHINE, "language" => LANGUAGE, "algo" => algo, "n" => n, "t" => dt}
   end
 end
 bench_data = JSON.parse(File.read "bench_data.json")
-bench_data ["computer"]=my_bench_data
+bench_data = bench_data + my_bench_data
 File.open("bench_data.json", "w+") {|f| JSON.dump(bench_data, f)}
