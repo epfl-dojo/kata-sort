@@ -28,7 +28,7 @@ def data_nearly(n, bs, ofs=0)
 end
 
 data={}
-for n in [100, 200, 400, 800, 1600] do
+for n in [100, 200, 400, 800, 1600, 3200, 6400, 12800] do
   ndata={}
   ndata["random"] = data_random(n)
   ndata["reverse"] = data_reverse(n)

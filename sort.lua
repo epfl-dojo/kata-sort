@@ -78,7 +78,8 @@ for algo, sorter in pairs(algos) do
     sorter(b)
     sorter(c)
     dt=os.clock() - t0
-    table.insert(my_bench_data, {["machine"]=MACHINE, ["language"]=LANGUAGE, ["algo"]=algo, ["n"]=n, ["t"]=dt})
+    print(string.format("%-8s %-14s %6d %8.3f", LANGUAGE, algo.." sort", n, dt))
+    table.insert(my_bench_data, {machine=MACHINE, language=LANGUAGE, algo=algo, n=n, t=dt})
   end
 end
 

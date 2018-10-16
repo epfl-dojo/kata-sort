@@ -8,10 +8,7 @@ input_data = File.read "generated_data.json"
 def time_this(title=nil)
   beg_time = Time.now
   yield
-  dt = Time.now - beg_time
-  puts "#{title}: #{dt}" unless title.nil?
-
-  dt
+  Time.now - beg_time
 end
 
 # --------------------------------------------------------- bubble sort
@@ -81,11 +78,12 @@ for algo in ["bubble", "quick"]
     a = ndata["random"]
     b = ndata["reverse"]
     c = ndata["nearly"]
-    dt=time_this("#{algo} sort #{n}") do
+    dt=time_this() do
       self.send("#{algo}_sort", a)
       self.send("#{algo}_sort", b)
       self.send("#{algo}_sort", c)
     end
+    puts "%-8s %-14s %6d %8.3f" % [LANGUAGE, "#{algo} sort", n, dt]
     my_bench_data << {"machine" => MACHINE, "language" => LANGUAGE, "algo" => algo, "n" => n, "t" => dt}
   end
 end
